@@ -4,12 +4,13 @@ const chalk = require('chalk');
 var score=0;
 
 var data=[
-  {name:"Chetan", score:6
-  },
+  {name:"rohan",score:2},
+  
   {name:"vedant",
   score:3},
   {name:"sahil",score:3},
-  {name:"rohan",score:2}
+  {name:"Chetan", score:6
+  }
 ]
 
 var name=readlinesync.question("Whats ur name Buddy ");
@@ -85,10 +86,14 @@ for(var i=0;i<questionList.length;i++){
   play(questionList[i].question,questionList[i].answer);
 }
 
-if(score>=data[0].score){
+if(score>=data[data.length-1].score){
   console.log(chalk.cyanBright("YAYY U ARE HIGHEST SCORER  with score",score));
-  console.log(chalk.cyanBright(" Send a Screenshot of Your"))
 }else{
   console.log(chalk.magenta.bold("Your total score is",score));
-  console.log(chalk.cyanBright("Highest Score Until Now",data[0].score,"belongs to ",data[0].name.toUpperCase()));
+  console.log(chalk.cyanBright("Highest Score Until Now",data[data.length-1].score,"belongs to ",data[data.length-1].name.toUpperCase()));
+}
+console.log(chalk.cyanBright(" Send a Screenshot of Your to add in databse"));
+
+if(score>=data[data.length-1].score){
+  data.push({"name":name ,"score":score});
 }
